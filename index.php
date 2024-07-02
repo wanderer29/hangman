@@ -112,6 +112,18 @@
 
     function startGame($filecontent) { 
         while (true) {
+            echo "Start new game? [Y/n]";
+                while (true) {
+                $handle = fopen("php://stdin", "r");
+                $input = trim(fgets($handle));
+                fclose($handle);
+
+                if ($input == 'n' || $input == 'N') return;
+                else if ($input == 'y' || $input == 'Y') {
+                    break;
+                }
+            }
+            
             $word = getword($filecontent);
             $guessWord = "";
             $missCount = 0;
